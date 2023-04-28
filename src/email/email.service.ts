@@ -21,11 +21,20 @@ export class EmailService {
     return this.prisma.email.findUnique({ where: { id } });
   }
 
-  update(id: number, updateEmailInput: UpdateEmailInput) {
-    return `This action updates a #${id} email`;
+  async update(id: number, data: UpdateEmailInput): Promise<Email> {
+    return await this.prisma.email.update({
+      where: {
+        id,
+      },
+      data,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} email`;
+  async remove(id: number): Promise<Email> {
+    return await this.prisma.email.delete({
+      where: {
+        id,
+      },
+    });
   }
 }

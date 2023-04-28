@@ -15,7 +15,7 @@ type Query {
 
 type Mutation {
   createEmail(data: CreateEmailInput!): Email!
-  updateEmail(updateEmailInput: UpdateEmailInput!): Email!
+  updateEmail(data: UpdateEmailInput!): Email!
   removeEmail(id: Int!): Email!
 }
 

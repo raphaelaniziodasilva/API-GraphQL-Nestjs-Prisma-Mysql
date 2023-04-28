@@ -24,12 +24,14 @@ export class EmailResolver {
   }
 
   @Mutation(() => Email)
-  updateEmail(@Args('updateEmailInput') updateEmailInput: UpdateEmailInput) {
-    return this.emailService.update(updateEmailInput.id, updateEmailInput);
+  async updateEmail(@Args('data') data: UpdateEmailInput): Promise<Email> {
+    return await this.emailService.update(data.id, data);
   }
 
   @Mutation(() => Email)
-  removeEmail(@Args('id', { type: () => Int }) id: number) {
-    return this.emailService.remove(id);
+  async removeEmail(
+    @Args('id', { type: () => Int }) id: number,
+  ): Promise<Email> {
+    return await this.emailService.remove(id);
   }
 }

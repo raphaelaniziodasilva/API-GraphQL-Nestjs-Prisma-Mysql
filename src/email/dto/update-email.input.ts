@@ -1,14 +1,8 @@
-import { IsNotEmpty, IsEmail } from 'class-validator';
-import { InputType, Field } from '@nestjs/graphql';
+import { CreateEmailInput } from './create-email.input';
+import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
-export class UpdateEmailInput {
-  @Field(() => String, { description: 'Email' })
-  @IsNotEmpty()
-  @IsEmail()
-  email: string;
-
-  @Field(() => String, { description: 'Nome' })
-  @IsNotEmpty()
-  name: string;
+export class UpdateEmailInput extends PartialType(CreateEmailInput) {
+  @Field(() => Int)
+  id: number;
 }

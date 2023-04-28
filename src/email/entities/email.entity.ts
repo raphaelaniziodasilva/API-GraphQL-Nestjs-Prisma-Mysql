@@ -1,15 +1,14 @@
-// schema do GraphQl
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+// vai ser gerado o schema do graphql gql
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Email {
-  @Field((type) => ID)
-  id: string;
+  @Field(() => Int)
+  id: number;
 
-  @Field(() => String, { description: 'Email' })
-  email: string;
-
-  @Field(() => String, { description: 'Nome' })
+  @Field()
   name: string;
+
+  @Field()
+  email: string;
 }
-// vamos copiar essas configuração e coloca no creat DTO

@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Email {
+  id: Int!
+  name: String!
+  email: String!
+}
+
+type Query {
+  email: [Email!]!
+  findById(id: Int!): Email!
+}
+
+type Mutation {
+  createEmail(data: CreateEmailInput!): Email!
+  updateEmail(updateEmailInput: UpdateEmailInput!): Email!
+  removeEmail(id: Int!): Email!
+}
+
+input CreateEmailInput {
+  name: String!
+  email: String!
+}
+
+input UpdateEmailInput {
+  name: String
+  email: String
+  id: Int!
+}
